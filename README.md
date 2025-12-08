@@ -65,11 +65,11 @@ O design foi construído seguindo o conceito japonês *Yugen* (beleza misteriosa
 
 | Launcher Home | Menu In-Game |
 |:---:|:---:|
-| <img src="https://github.com/carlosvcl/yugenyumi-site/blob/main/launcher.png?raw=true" width="400"> | <img src="COLOQUE_LINK_DA_PRINT_DO_MENU_AQUI" width="400"> |
+| <img src="https://github.com/carlosvcl/yugenyumi-site/blob/main/launcher.png?raw=true" width="400"> | <img src="https://github.com/carlosvcl/yugenyumi-site/blob/main/logado.png?raw=true" width="400"> |
 
 | Seletor de Mods | Gerenciador de Contas |
 |:---:|:---:|
-| <img src="COLOQUE_LINK_DA_PRINT_DOS_MODS_AQUI" width="400"> | <img src="COLOQUE_LINK_DA_PRINT_DAS_CONTAS_AQUI" width="400"> |
+| <img src="https://github.com/carlosvcl/yugenyumi-site/blob/main/modulos.png?raw=true" width="400"> | <img src="https://github.com/carlosvcl/yugenyumi-site/blob/main/mine.png?raw=true" width="400"> |
 
 ---
 
