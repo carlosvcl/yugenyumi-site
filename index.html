@@ -4,15 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YugenYumi Client - Domine o PvP</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>YugenYumi Client - A Experiência Definitiva</title>
+    
+    <meta name="description" content="O melhor Client PvP para Minecraft 1.8.9. FPS Boost, Mods inclusos e Visual Premium.">
+    <meta name="theme-color" content="#7289da">
+    <meta property="og:image" content="https://github.com/carlosvcl/yugenyumi-site/blob/main/launcher.png?raw=true">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/carlosvcl/yugen-files/main/assets/minecraft.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #7289da;
-            --accent: #ff4757;
-            --bg-dark: #050508;
+            --primary: #7289da;      
+            --accent: #ff4757;       
+            --bg-dark: #050508;      
             --glass: rgba(20, 20, 30, 0.7);
             --glass-border: rgba(255, 255, 255, 0.1);
         }
@@ -20,148 +26,180 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
-            background-color: var(--bg-dark);
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
+            background-color: var(--bg-dark); color: white;
+            font-family: 'Poppins', sans-serif; overflow-x: hidden;
         }
 
-        /* --- FUNDO ANIMADO --- */
+        /* --- SCROLLBAR --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050508; }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(180deg, var(--primary), var(--accent)); 
+            border-radius: 10px; 
+        }
+
+        /* --- FUNDO FIXO --- */
         .bg-fixed {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-image: url('https://raw.githubusercontent.com/carlosvcl/yugen-files/main/assets/fundo.jpg');
-            background-size: cover;
-            background-position: center;
-            z-index: -2;
-            filter: brightness(0.4);
+            background-size: cover; background-position: center;
+            z-index: -2; filter: brightness(0.3); 
         }
         
-        #particles-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
-        
+        /* --- AS PÉTALAS (SAKURA) --- */
+        #particles-container { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            pointer-events: none; z-index: -1; 
+        }
         .petal {
-            position: absolute; background: var(--accent); opacity: 0.6;
-            border-radius: 100% 0 100% 0; animation: fall linear infinite;
+            position: absolute; 
+            background: var(--accent); /* Cor Vermelha/Rosa */
+            opacity: 0.8; /* Mais visível */
+            border-radius: 100% 0 100% 0; 
+            animation: fall linear infinite;
+            box-shadow: 0 0 15px rgba(255, 71, 87, 0.6); /* Brilho na pétala */
         }
         @keyframes fall {
             0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.8; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
             100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
         }
 
         /* --- NAVBAR --- */
         nav {
-            position: fixed; top: 0; width: 100%;
-            padding: 20px 50px;
+            position: fixed; top: 0; width: 100%; padding: 20px 8%;
             display: flex; justify-content: space-between; align-items: center;
-            background: rgba(5, 5, 8, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--glass-border);
-            z-index: 1000;
+            background: rgba(5, 5, 8, 0.6); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border); z-index: 1000;
         }
-
-        .logo { font-size: 24px; font-weight: 800; color: white; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo { font-size: 26px; font-weight: 900; color: white; text-decoration: none; display: flex; align-items: center; gap: 10px; letter-spacing: -1px; }
         .logo span { color: var(--accent); }
+        .nav-links { display: flex; align-items: center; gap: 30px; }
+        .nav-links a { color: #ccc; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.3s; position: relative; }
+        .nav-links a:hover { color: white; }
+        .btn-nav { background: var(--primary); padding: 10px 25px; border-radius: 20px; color: white !important; font-weight: 700 !important; box-shadow: 0 5px 20px rgba(114, 137, 218, 0.3); transition: 0.3s !important; }
+        .btn-nav:hover { transform: scale(1.05); }
 
-        .nav-links a {
-            color: #ccc; text-decoration: none; margin-left: 30px; font-weight: 600; font-size: 14px; transition: 0.3s;
-        }
-        .nav-links a:hover { color: white; text-shadow: 0 0 10px var(--primary); }
-
-        .btn-nav {
-            background: var(--primary); padding: 10px 25px; border-radius: 20px; color: white !important;
-        }
-
-        /* --- HERO SECTION --- */
+        /* --- HERO --- */
         header {
-            height: 100vh;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 20px;
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 20px; position: relative;
         }
-
+        .hero-badge {
+            background: rgba(255, 71, 87, 0.1); color: var(--accent);
+            padding: 8px 20px; border-radius: 30px; font-size: 11px; font-weight: 800;
+            margin-bottom: 25px; border: 1px solid rgba(255, 71, 87, 0.3);
+            text-transform: uppercase; letter-spacing: 3px; backdrop-filter: blur(5px);
+        }
         h1 {
-            font-size: 80px; line-height: 1; margin-bottom: 20px;
-            background: linear-gradient(135deg, #fff 30%, #aaa 100%);
+            font-size: 85px; line-height: 1; margin-bottom: 20px; font-weight: 900; letter-spacing: -3px;
+            background: linear-gradient(180deg, #fff 20%, #888 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 20px rgba(114, 137, 218, 0.3));
+            filter: drop-shadow(0 0 40px rgba(114, 137, 218, 0.2));
             animation: float 6s ease-in-out infinite;
         }
-
-        .subtitle { font-size: 20px; color: #ccc; max-width: 700px; margin-bottom: 40px; }
-
-        .cta-group { display: flex; gap: 20px; }
-
+        .typewriter { border-right: 3px solid var(--accent); padding-right: 5px; animation: blink 0.75s step-end infinite; color: var(--accent); }
+        @keyframes blink { 50% { border-color: transparent } }
+        .subtitle { font-size: 18px; color: #bbb; max-width: 650px; margin-bottom: 40px; line-height: 1.6; }
+        .cta-group { display: flex; gap: 20px; align-items: center; justify-content: center; flex-wrap: wrap; }
+        
         .btn-download {
-            padding: 18px 45px; font-size: 18px; font-weight: 700; color: white;
-            background: linear-gradient(135deg, var(--primary), #5865F2);
-            border-radius: 12px; text-decoration: none;
-            box-shadow: 0 10px 40px rgba(114, 137, 218, 0.4);
+            padding: 20px 50px; font-size: 18px; font-weight: 800; color: white;
+            background: linear-gradient(90deg, var(--primary), #5865F2);
+            border-radius: 16px; text-decoration: none;
+            box-shadow: 0 10px 50px rgba(114, 137, 218, 0.4);
             border: 1px solid rgba(255,255,255,0.2);
-            transition: 0.3s; display: flex; align-items: center; gap: 10px;
+            transition: 0.3s; display: flex; align-items: center; gap: 12px;
         }
-        .btn-download:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(114, 137, 218, 0.6); }
+        .btn-download:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 20px 80px rgba(114, 137, 218, 0.6); }
 
         .btn-discord {
-            padding: 18px 45px; font-size: 18px; font-weight: 700; color: white;
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px; text-decoration: none;
+            padding: 20px 50px; font-size: 18px; font-weight: 800; color: white;
+            background: rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none;
             border: 1px solid rgba(255,255,255,0.1);
-            transition: 0.3s; display: flex; align-items: center; gap: 10px;
+            transition: 0.3s; display: flex; align-items: center; gap: 12px;
         }
-        .btn-discord:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); }
+        .btn-discord:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); border-color: var(--primary); }
 
-        /* --- FEATURES SECTION --- */
-        .section { padding: 100px 50px; max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; font-size: 36px; margin-bottom: 60px; font-weight: 700; }
+        /* --- FEATURES (3D TILT) --- */
+        .section { padding: 120px 8%; max-width: 1400px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 48px; margin-bottom: 80px; font-weight: 800; letter-spacing: -1px; }
         .section-title span { color: var(--accent); }
 
-        .grid-features {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
-        }
-
+        .grid-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; perspective: 1000px; }
         .feature-card {
-            background: var(--glass); border: 1px solid var(--glass-border);
-            padding: 30px; border-radius: 20px; transition: 0.3s;
-            display: flex; flex-direction: column; align-items: flex-start; gap: 15px;
+            background: linear-gradient(145deg, rgba(30, 30, 40, 0.6), rgba(20, 20, 30, 0.8));
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px 30px; border-radius: 24px; transition: transform 0.1s;
+            display: flex; flex-direction: column; align-items: flex-start; gap: 20px;
+            transform-style: preserve-3d;
         }
-        .feature-card:hover { transform: translateY(-10px); border-color: var(--accent); }
-        
         .icon-box {
-            width: 50px; height: 50px; background: rgba(255,255,255,0.05);
-            border-radius: 12px; display: flex; align-items: center; justify-content: center;
-            color: var(--accent); font-size: 24px;
+            width: 70px; height: 70px; background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+            border-radius: 20px; display: flex; align-items: center; justify-content: center;
+            color: var(--accent); font-size: 32px; border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); transform: translateZ(20px);
         }
+        .feature-card h3 { font-size: 24px; font-weight: 800; transform: translateZ(20px); }
+        .feature-card p { color: #aaa; font-size: 15px; line-height: 1.6; transform: translateZ(20px); }
 
-        .feature-card h3 { font-size: 20px; }
-        .feature-card p { color: #aaa; font-size: 14px; line-height: 1.6; }
-
-        /* --- GALLERY --- */
-        .gallery-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
-        }
+        /* --- GALERIA LIGHTBOX --- */
+        .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
         .gallery-item {
-            border-radius: 16px; overflow: hidden; border: 1px solid var(--glass-border);
-            position: relative; height: 300px;
+            border-radius: 24px; overflow: hidden; border: 1px solid var(--glass-border);
+            position: relative; height: 350px; background: #0a0a0f; cursor: pointer;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center;
         }
-        .gallery-item img {
-            width: 100%; height: 100%; object-fit: cover; transition: 0.5s;
+        .gallery-item img { width: 100%; height: 100%; object-fit: contain; transition: 0.5s; opacity: 0.9; }
+        .gallery-item:hover img { transform: scale(1.05); opacity: 1; }
+        .gallery-overlay {
+            position: absolute; inset: 0; background: rgba(0,0,0,0.5); opacity: 0; transition: 0.3s;
+            display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;
         }
-        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
 
-        /* --- FOOTER --- */
-        footer {
-            text-align: center; padding: 50px; border-top: 1px solid var(--glass-border);
-            background: rgba(5, 5, 8, 0.9); color: #666; font-size: 14px;
+        /* Lightbox */
+        #lightbox {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 5000;
+            display: none; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s;
         }
+        #lightbox.active { display: flex; opacity: 1; }
+        #lightbox img { max-width: 90%; max-height: 90%; border-radius: 12px; box-shadow: 0 0 80px rgba(114, 137, 218, 0.2); }
+        #lightbox-close { position: absolute; top: 30px; right: 30px; font-size: 40px; color: white; cursor: pointer; }
 
+        /* --- REQUISITOS --- */
+        .req-table {
+            width: 100%; background: var(--glass); border-radius: 20px;
+            border: 1px solid var(--glass-border); overflow: hidden; margin-top: 20px;
+            backdrop-filter: blur(10px);
+        }
+        .req-row { display: flex; border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.2s; }
+        .req-row:hover { background: rgba(255,255,255,0.02); }
+        .req-head { width: 30%; background: rgba(255,255,255,0.05); padding: 25px; font-weight: 700; }
+        .req-data { width: 70%; padding: 25px; color: #bbb; }
+
+        /* --- FAQ --- */
+        .faq-grid { display: flex; flex-direction: column; gap: 15px; max-width: 900px; margin: 0 auto; }
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02); border: 1px solid var(--glass-border);
+            border-radius: 16px; overflow: hidden; transition: 0.3s; cursor: pointer;
+        }
+        .faq-item:hover { background: rgba(255, 255, 255, 0.05); transform: translateX(10px); }
+        .faq-question { padding: 25px 30px; font-size: 18px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding: 0 30px; color: #aaa; line-height: 1.7; }
+        .faq-item.active { background: rgba(255, 255, 255, 0.08); border-color: var(--accent); }
+        .faq-item.active .faq-answer { max-height: 200px; padding-bottom: 30px; }
+
+        footer { text-align: center; padding: 80px 20px; background: #020203; border-top: 1px solid var(--glass-border); color: #666; margin-top: 100px; }
+
+        .hidden { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
+        .show { opacity: 1; transform: translateY(0); }
         @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
-
-        /* Mobile */
+        
         @media (max-width: 768px) {
-            h1 { font-size: 48px; }
-            .cta-group { flex-direction: column; }
-            nav { padding: 20px; }
-            .nav-links { display: none; } /* Simples hide para mobile */
-            .gallery-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 50px; } nav { padding: 20px; } .nav-links { display: none; }
+            .gallery-grid { grid-template-columns: 1fr; } .cta-group { flex-direction: column; width: 100%; }
         }
     </style>
 </head>
@@ -171,89 +209,189 @@
     <div class="bg-fixed"></div>
     <div id="particles-container"></div>
 
+    <div id="lightbox" onclick="closeLightbox()"><span id="lightbox-close">&times;</span><img id="lightbox-img" src=""></div>
+
     <nav>
         <a href="#" class="logo">Yugen<span>Yumi</span></a>
         <div class="nav-links">
             <a href="#features">Funcionalidades</a>
             <a href="#gallery">Galeria</a>
-            <a href="LINK_DO_SEU_DISCORD" target="_blank">Discord</a>
+            <a href="#requirements">Requisitos</a>
+            <a href="#faq">FAQ</a>
             <a href="https://github.com/carlosvcl/yugenyumi-site/releases/download/v1.0.0/YugenYumi.Client.Setup.1.0.0.exe" class="btn-nav">Baixar</a>
         </div>
     </nav>
 
     <header>
-        <span style="color: var(--accent); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;">Versão 1.0 Beta</span>
-        <h1>A Revolução do<br>PvP 1.8.9</h1>
-        <p class="subtitle">Mais FPS. Mais Estilo. Zero Configuração. O Client feito para quem quer performance sem abrir mão da estética.</p>
+        <div class="hero-badge">Versão 1.0 Beta Disponível</div>
+        <h1>Performance &<br><span id="typewriter" class="typewriter">Estilo</span></h1>
+        <p class="subtitle">Experimente a nova geração de Clients para Minecraft 1.8.9. Otimizado, customizável e totalmente gratuito.</p>
         
         <div class="cta-group">
             <a href="https://github.com/carlosvcl/yugenyumi-site/releases/download/v1.0.0/YugenYumi.Client.Setup.1.0.0.exe" class="btn-download">
-                <span class="material-icons-outlined">download</span>
-                Baixar para Windows
+                <span class="material-icons-outlined">download</span> Baixar para Windows
             </a>
-            <a href="LINK_DO_SEU_DISCORD" target="_blank" class="btn-discord">
-                <span class="material-icons-outlined">discord</span>
-                Entrar no Discord
+            <a href="https://discord.gg" target="_blank" class="btn-discord">
+                <span class="material-icons-outlined">discord</span> Entrar no Discord
             </a>
         </div>
     </header>
 
-    <section id="features" class="section">
-        <div class="section-title">Por que usar o <span>YugenYumi</span>?</div>
+    <section id="features" class="section hidden">
+        <div class="section-title">Por que o <span>YugenYumi</span>?</div>
         <div class="grid-features">
-            <div class="feature-card">
+            <div class="feature-card" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
                 <div class="icon-box"><span class="material-icons-outlined">bolt</span></div>
                 <h3>FPS Boost Extremo</h3>
-                <p>Otimizações de JVM e OptiFine pré-configurado garantem a maior taxa de quadros possível em qualquer PC.</p>
+                <p>Nosso launcher aplica otimizações de JVM e carrega o OptiFine nativamente para garantir a maior taxa de quadros.</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
                 <div class="icon-box"><span class="material-icons-outlined">extension</span></div>
-                <h3>Mods Essenciais</h3>
-                <p>Keystrokes, ToggleSprint, OldAnimations e BlockOverlay já instalados e prontos para usar.</p>
+                <h3>Mods PvP Inclusos</h3>
+                <p>Keystrokes, ToggleSprint, OldAnimations e BlockOverlay já instalados e prontos para o combate.</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
                 <div class="icon-box"><span class="material-icons-outlined">palette</span></div>
-                <h3>Visual Único</h3>
-                <p>Um design moderno estilo "Glass", com menu principal customizado e identidade visual marcante.</p>
+                <h3>Visual Premium</h3>
+                <p>Interface Glassmorphism moderna com partículas animadas e menu in-game totalmente customizado.</p>
             </div>
-            <div class="feature-card">
-                <div class="icon-box"><span class="material-icons-outlined">cloud_download</span></div>
-                <h3>Auto-Instalação</h3>
-                <p>Esqueça instaladores complexos. O launcher baixa e configura o Forge automaticamente para você.</p>
+            <div class="feature-card" onmousemove="tiltCard(event, this)" onmouseleave="resetCard(this)">
+                <div class="icon-box"><span class="material-icons-outlined">security</span></div>
+                <h3>Segurança Total</h3>
+                <p>Código aberto e transparente. Suporte para contas Microsoft Originais e Modo Offline.</p>
             </div>
         </div>
     </section>
 
-    <section id="gallery" class="section">
+    <section id="gallery" class="section hidden">
         <div class="section-title">Veja em <span>Ação</span></div>
         <div class="gallery-grid">
-            <div class="gallery-item"><img src="https://github.com/carlosvcl/yugenyumi-site/blob/main/launcher.png?raw=true" alt="Launcher Home"></div>
-            <div class="gallery-item"><img src="https://github.com/carlosvcl/yugenyumi-site/blob/main/mine.png?raw=true" alt="Menu In-Game"></div>
-            <div class="gallery-item"><img src="https://github.com/carlosvcl/yugenyumi-site/blob/main/logado.png?raw=true" alt="Mods"></div>
-            <div class="gallery-item"><img src="https://github.com/carlosvcl/yugenyumi-site/blob/main/modulos.png?raw=true" alt="Configurações"></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="https://github.com/carlosvcl/yugenyumi-site/blob/main/launcher.png?raw=true" alt="Launcher"><div class="gallery-overlay"><span class="material-icons-outlined">zoom_in</span></div></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="https://github.com/carlosvcl/yugenyumi-site/blob/main/logado.png?raw=true" alt="Menu"><div class="gallery-overlay"><span class="material-icons-outlined">zoom_in</span></div></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="https://github.com/carlosvcl/yugenyumi-site/blob/main/modulos.png?raw=true" alt="Mods"><div class="gallery-overlay"><span class="material-icons-outlined">zoom_in</span></div></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="https://github.com/carlosvcl/yugenyumi-site/blob/main/mine.png?raw=true" alt="Config"><div class="gallery-overlay"><span class="material-icons-outlined">zoom_in</span></div></div>
+        </div>
+    </section>
+
+    <section id="requirements" class="section hidden" style="max-width: 800px;">
+        <div class="section-title">Requisitos do <span>Sistema</span></div>
+        <div class="req-table">
+            <div class="req-row"><div class="req-head">Sistema Operacional</div><div class="req-data">Windows 7, 8, 10 ou 11 (64-bit)</div></div>
+            <div class="req-row"><div class="req-head">Processador</div><div class="req-data">Intel Core i3 ou AMD Ryzen 3 (Mínimo)</div></div>
+            <div class="req-row"><div class="req-head">Memória RAM</div><div class="req-data">2GB Livres (4GB Recomendado)</div></div>
+            <div class="req-row"><div class="req-head">Java</div><div class="req-data">Não precisa (Já vem embutido no launcher)</div></div>
+        </div>
+    </section>
+
+    <section id="faq" class="section hidden">
+        <div class="section-title">Dúvidas <span>Frequentes</span></div>
+        <div class="faq-grid">
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">É gratuito? <span class="material-icons-outlined">expand_more</span></div>
+                <div class="faq-answer">Sim! O YugenYumi é 100% gratuito. Não cobramos por capas, asas ou acesso antecipado.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Precisa de Minecraft Original? <span class="material-icons-outlined">expand_more</span></div>
+                <div class="faq-answer">Não. O client suporta tanto contas Microsoft (Originais) quanto o Modo Offline (Pirata) para que todos possam jogar.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Aumenta mesmo o FPS? <span class="material-icons-outlined">expand_more</span></div>
+                <div class="faq-answer">Sim. Utilizamos uma combinação do OptiFine configurado, bibliotecas atualizadas e argumentos de inicialização do Java otimizados.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Posso colocar meus mods? <span class="material-icons-outlined">expand_more</span></div>
+                <div class="faq-answer">Sim! Basta acessar a pasta %appdata% > Roaming > yugenyumi-client > minecraft > mods e colocar seus arquivos .jar lá.</div>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 YugenYumi Client. Não afiliado à Mojang Studios.</p>
+        <div class="logo" style="justify-content:center; margin-bottom:20px;">Yugen<span>Yumi</span></div>
+        <p>&copy; 2025 YugenYumi Team. Todos os direitos reservados.</p>
     </footer>
 
     <script>
-        // Script das Partículas (Mesmo do Launcher)
+        // PARTICULAS
         const container = document.getElementById('particles-container');
         function createPetal() {
             const petal = document.createElement('div');
             petal.classList.add('petal');
             const size = Math.random() * 8 + 4 + 'px';
-            petal.style.width = size;
-            petal.style.height = size;
+            petal.style.width = size; petal.style.height = size;
             petal.style.left = Math.random() * 100 + 'vw';
             const duration = Math.random() * 5 + 5 + 's';
             petal.style.animationDuration = duration;
             container.appendChild(petal);
             setTimeout(() => { petal.remove(); createPetal(); }, parseFloat(duration) * 1000); 
         }
-        for (let i = 0; i < 15; i++) { setTimeout(createPetal, Math.random() * 3000); }
+        for (let i = 0; i < 30; i++) { setTimeout(createPetal, Math.random() * 3000); }
+
+        // SCROLL
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('show'); } });
+        });
+        document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
+
+        // FAQ
+        function toggleFaq(element) {
+            element.classList.toggle('active');
+            const icon = element.querySelector('.material-icons-outlined');
+            icon.innerText = element.classList.contains('active') ? 'expand_less' : 'expand_more';
+        }
+
+        // TYPEWRITER
+        const words = ["Estilo", "Performance", "PvP", "Qualidade"];
+        let i = 0;
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typewriter').innerHTML += word.shift();
+                } else { setTimeout(deletingEffect, 2000); return false; }
+                setTimeout(loopTyping, 150);
+            };
+            loopTyping();
+        }
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typewriter').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) { i++; } else { i = 0; }
+                    typingEffect(); return false;
+                }
+                setTimeout(loopDeleting, 100);
+            };
+            loopDeleting();
+        }
+        typingEffect();
+
+        // 3D TILT
+        function tiltCard(e, card) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -10; 
+            const rotateY = ((x - centerX) / centerX) * 10;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        }
+        function resetCard(card) {
+            card.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale(1)`;
+        }
+
+        // LIGHTBOX
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            lightboxImg.src = img.src;
+            lightbox.classList.add('active');
+        }
+        function closeLightbox() { lightbox.classList.remove('active'); }
     </script>
 </body>
 </html>
