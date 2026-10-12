@@ -1,94 +1,48 @@
-<div align="center">
+# YugenYumi Client — Site Premium com Capturas Reais
 
-  <img src="https://raw.githubusercontent.com/carlosvcl/yugen-files/main/assets/minecraft.png" alt="Logo YugenYumi" width="350" />
+Esta versão atualiza o site anterior **sem reconstruí-lo**, usando as **21 capturas reais** enviadas do Launcher YugenYumi **9.0.0-dev**. O rótulo do projeto apresentado no site continua **9.1.0-dev**. As imagens são históricas e estão identificadas corretamente no próprio site.
 
-  # YugenYumi Client
-  
-  **A Nova Geração de Client PvP para Minecraft 1.8.9**
-  
-  [![Version](https://img.shields.io/badge/version-1.0.0%20Beta-ff4757?style=for-the-badge&logo=appveyor)](https://github.com/carlosvcl/yugenyumi-site/releases)
-  [![Electron](https://img.shields.io/badge/Built%20With-Electron-47848F?style=for-the-badge&logo=electron)](https://www.electronjs.org/)
-  [![Minecraft](https://img.shields.io/badge/Support-1.8.9-green?style=for-the-badge&logo=minecraft)](https://minecraft.net)
-  [![Windows](https://img.shields.io/badge/Platform-Windows-0078D6?style=for-the-badge&logo=windows)](https://microsoft.com)
+## Publicar no GitHub Pages
 
-  <p align="center">
-    <a href="#-funcionalidades">Funcionalidades</a> •
-    <a href="#-instalação">Instalação</a> •
-    <a href="#-galeria">Galeria</a> •
-    <a href="#-desenvolvimento">Desenvolvimento</a>
-  </p>
+1. Extraia o ZIP recebido.
+2. Envie **os arquivos que estão dentro de `yugenyumi-site-main/`** para a **raiz** do repositório GitHub Pages, substituindo `index.html`, `styles.css`, `script.js`, `site-config.js` e a pasta `assets/`.
+3. Se o GitHub Pages ainda não estiver ativo: Settings > Pages > Deploy from a branch > branch `main` > `/(root)`.
+4. Aguarde a atualização. Para descartar cache visual antigo do navegador, use Ctrl+F5.
 
-</div>
+**Não publique o ZIP inteiro como arquivo dentro do repositório esperando que o Pages o abra automaticamente**. O Pages precisa ler o `index.html` na pasta configurada.
 
----
+## Conteúdo novo
 
-## ⚡ Sobre o Projeto
+- Hero com **captura real** do Launcher; alternância entre Início, Módulos e Configurações Gerais.
+- 21 capturas reais, com thumbnails de carregamento progressivo, preservando proporções e sem cortes.
+- Filtros: Interface, Recursos, Personalização e Sistema.
+- Visor em destaque (lightbox) com botões anterior/próximo, Escape, setas do teclado e gesto de deslizar no celular.
+- Visual dark glass e tons violeta/ciano combinando com o Launcher, em desktop e celular.
+- Site estático em HTML/CSS/JavaScript, sem build, sem Node e sem cookies/serviços de terceiros obrigatórios para o funcionamento. Fontes externas são opcionais e possuem fallback.
 
-**YugenYumi** é um Client focado em performance máxima e estética visual para Minecraft 1.8.9. Diferente de outros launchers, ele automatiza completamente a instalação do **Forge**, **OptiFine** e os melhores **Mods de PvP**, entregando uma experiência pronta para jogar com apenas um clique.
+## Versões e links
 
-O design foi construído seguindo o conceito japonês *Yugen* (beleza misteriosa e profunda), com uma interface moderna, glassmorphism e animações fluidas.
+Edite o arquivo `site-config.js` para trocar:
 
----
+- `version`: versão do client anunciada no site (hoje: `9.1.0-dev`);
+- `screenshotVersion`: versão de onde vieram as capturas (hoje: `9.0.0-dev`);
+- `releaseUrl`: endereço verdadeiro das Releases para downloads oficiais;
+- `repositoryUrl`: endereço verdadeiro do projeto no GitHub.
 
-## 🚀 Funcionalidades
+**Atenção:** os links de repositório/Releases foram preservados da versão anterior e apontam para `carlosvcl/yugenyumi-site`; verifique se é o repositório correto antes de compartilhar o site para downloads. O site não incorpora executáveis `.exe` e não promete que já exista Release pública.
 
-### 🎮 Performance & PvP
-* **FPS Boost:** Otimizações nativas via OptiFine e argumentos JVM personalizados para rodar liso.
-* **Mods Inclusos (Auto-Install):**
-    * `KeystrokesMod` (Teclas na tela com RGB)
-    * `ToggleSprint` (Correr automaticamente sem segurar tecla)
-    * `OldAnimations` (Animações da 1.7 para PvP fluido e Hit-Block)
-    * `BlockOverlay` (Bordas de bloco personalizadas)
-* **Conexão Direta:** Botões de acesso rápido para **MushMC** e **Hypixel**.
+## Capturas
 
-### 💻 Launcher Moderno
-* **Sistema de Contas:** Suporte completo para Login Microsoft (Original) e Modo Offline.
-* **Auto-Repair:** O launcher detecta arquivos corrompidos e baixa novamente (Forge/Libs) automaticamente.
-* **Custom Main Menu:** Menu principal do jogo totalmente redesenhado para combinar com a identidade visual.
-* **Gerenciador de RAM:** Slider intuitivo para alocar memória RAM sem editar arquivos de texto.
+Arquivos em `assets/screenshots/`:
 
----
+- Cada tela possui uma versão `.webp` de alta definição (1919 pixels de largura) e outra `-thumb.webp` reduzida para carregar a galeria rapidamente.
+- Os arquivos originais PNG enviados continuam sendo os originais desta conversa; o site usa WebP otimizado apenas para diminuir o tamanho de carregamento.
+- As telas documentam elementos visuais, não garantem que cada recurso exibido esteja finalizado ou testado no jogo.
 
-## 📥 Instalação
+Para substituir capturas futuras, atualize os arquivos/imagens e as entradas de `screenshots` no `site-config.js` e os cards correspondentes do `index.html`.
 
-1.  Acesse a aba **[Releases](../../releases)** deste repositório (ou clique no botão acima).
-2.  Baixe o arquivo mais recente: `YugenYumi Setup 1.0.0.exe`.
-3.  Execute o instalador.
-4.  Faça login e clique em **JOGAR**.
-    * *Nota: Na primeira execução, o launcher pode demorar alguns minutos para baixar o Minecraft Vanilla e configurar o Forge. Isso é normal!*
+## Testes locais
 
----
+Revisados em Chromium nas larguras 320, 360, 390, 430, 560, 600, 768, 820, 1024, 1280, 1440 e 1920 px, incluindo filtros, lightbox, setas de navegação, hero interativo e menu mobile.
 
-## 📸 Galeria
-
-> *Veja como o YugenYumi transforma sua experiência.*
-
-| Launcher Home | Menu In-Game |
-|:---:|:---:|
-| <img src="https://github.com/carlosvcl/yugenyumi-site/blob/main/launcher.png?raw=true" width="400"> | <img src="https://github.com/carlosvcl/yugenyumi-site/blob/main/logado.png?raw=true" width="400"> |
-
-| Seletor de Mods | Gerenciador de Contas |
-|:---:|:---:|
-| <img src="https://github.com/carlosvcl/yugenyumi-site/blob/main/modulos.png?raw=true" width="400"> | <img src="https://github.com/carlosvcl/yugenyumi-site/blob/main/mine.png?raw=true" width="400"> |
-
----
-
-## 🛠️ Desenvolvimento
-
-Se você é desenvolvedor e quer compilar o código fonte deste projeto:
-
-```bash
-# Clone este repositório
-$ git clone [https://github.com/carlosvcl/yugenyumi-client](https://github.com/carlosvcl/yugenyumi-client)
-
-# Entre na pasta
-$ cd yugenyumi-client
-
-# Instale as dependências
-$ npm install
-
-# Inicie em modo de desenvolvimento
-$ npm start
-
-# Gere o executável (.exe) para distribuição
-$ npm run dist
+O YugenYumi é um projeto independente e não é afiliado à Mojang Studios ou Microsoft.
